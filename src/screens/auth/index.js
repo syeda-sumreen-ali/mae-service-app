@@ -12,7 +12,7 @@ import {
 import { color } from 'react-native-reanimated'
 import {COLORS, FONTS, IMAGES, ICONS, SIZES} from '../../constants'
 
-const AuthenticationComponent = props => {
+const Auth = props => {
   const {
     email,
     password,
@@ -59,34 +59,8 @@ const AuthenticationComponent = props => {
                 }
               />
            
-            {isHaveAnAccount && (
-              <TouchableOpacity onPress={() => changePasswordResetState()}>
-                <Text style={[styles.txt, {textDecorationLine: 'underline'}]}>
-                  Forgot your password?
-                </Text>
-              </TouchableOpacity>
-            )}
-            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-              <TouchableOpacity
-                onPress={() => onAuthSubmit()}
-                style={styles.btn1}>
-                <Text style={[styles.btnTxt,{ color:COLORS.dark1}]}>
-                  {isHaveAnAccount ? 'SIGN IN' : 'SIGN UP'}
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={() => onAuthSubmit()}
-                style={[
-                  styles.btn1,
-                  {backgroundColor: COLORS.black1, elevation: 6},
-                ]}>
-                <Text style={styles.btnTxt}>
-                  {isHaveAnAccount ? 'SIGN IN' : 'SIGN UP'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-
+           
+         
             <TouchableOpacity
               onPress={() => onAuthWithFacebook()}
               style={styles.socialLoginBtn}>
@@ -98,7 +72,7 @@ const AuthenticationComponent = props => {
     </SafeAreaView>
   )
 }
-export default AuthenticationComponent
+export default Auth
 
 const styles = StyleSheet.create({
   container: {

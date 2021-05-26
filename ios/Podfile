@@ -12,6 +12,8 @@ target 'mia_mobile_app' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   target 'mia_mobile_appTests' do
     inherit! :complete
     # Pods for testing

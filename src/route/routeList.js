@@ -1,7 +1,7 @@
 import {AuthContainer, HomeContainer, SplashContainer} from '../container'
 import DevScreen from '../screens/devScreen';
 
-export const initialRouteName='splash'
+export const initialRouteName='auth'
 export const RouteList = [
   {name:'devScreen', component:DevScreen},
   {name: 'splash', component: SplashContainer},

@@ -1,7 +1,7 @@
 import React from 'react'
 import Route from './route'
 import { LogBox } from 'react-native';
-
+import {Provider} from 'react-redux'
 
 // for specific warnings
 // LogBox.ignoreLogs([])
@@ -11,7 +11,9 @@ import { LogBox } from 'react-native';
 
 const App = () => {
   return (
-    <Route/>
+    <Provider store={store}>
+      <Route/>
+    </Provider>
   )
 }
 

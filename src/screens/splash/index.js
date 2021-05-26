@@ -16,7 +16,7 @@ const Splash = () => {
       setProgress(progress + 0.2)
     }
    }, 500)
-  // // setProgress(0.2)
+  // setProgress(0.2)
   return (
     <View style={styles.container}>
       <Image source={IMAGES.logo_light} style={styles.logo} />
