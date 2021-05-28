@@ -3,8 +3,9 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import {RouteList,initialRouteName} from './routeList'
 import {isReadyRef, navigationRef, navigate} from './rootNavigation'
-import { Splash } from '../screens'
-
+import {connect} from 'react-redux'
+import { clearToast} from '../store/actions'
+import { Toast } from '../components'
 const Stack = createStackNavigator()
 
 export class Route extends Component {
@@ -18,6 +19,7 @@ export class Route extends Component {
       <NavigationContainer
         ref={navigationRef}
         onReady={() => (isReadyRef.current = true)}>
+          {this.props.isToastShowing && <Toast {...this.props.toastConfig} clearToast={this.props.clearToast}/>}
         <Stack.Navigator initialRouteName={initialRouteName}>
           {RouteList.map((route,index )=> (
             <Stack.Screen
@@ -33,4 +35,12 @@ export class Route extends Component {
   }
 }
 
-export default Route
+const mapStateToProps= props =>{
+  const {toast ,auth} = props 
+  return {
+    isToastShowing:toast.isToastShowing,
+    toastConfig:toast.config 
+  }
+}
+
+export default connect (mapStateToProps,{clearToast})(Route)

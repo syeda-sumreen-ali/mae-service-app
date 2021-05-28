@@ -10,6 +10,9 @@ const IMAGES = {
 	worker2:require('../assets/workers/2.png'),
 	worker3:require('../assets/workers/6.png'),
 	worker4:require('../assets/workers/7.png'),
+	icons_actions_left: require('../assets/icons-actions-left.png'),
+	icons_actions_photo: require('../assets/icons-actions-photo.png'),
+	icons_actions_add_photo: require('../assets/icons-actions-add-photo.png'),
 
 
 
@@ -30,13 +33,10 @@ const IMAGES = {
 	// icons_actions_close_white: require('../assets/appImages/icons-actions-close-white.png'),
 	// icons_actions_filter: require('../assets/appImages/icons-actions-filter.png'),
 	// icons_actions_home: require('../assets/appImages/icons-actions-home-fill.png'),
-	// icons_actions_left: require('../assets/appImages/icons-actions-left.png'),
 	// icons_actions_right: require('../assets/appImages/icons-actions-right.png'),
 	// icons_actions_notification: require('../assets/appImages/icons-actions-notification.png'),
 	// icons_actions_overflow: require('../assets/appImages/icons-actions-overflow.png'),
 	// icons_actions_profile: require('../assets/appImages/icons-actions-profile.png'),
-	// icons_actions_photo: require('../assets/appImages/icons-actions-photo.png'),
-	// icons_actions_add: require('../assets/appImages/icons-actions-add.png'),
 	// icons_actions_search: require('../assets/appImages/icons-actions-search.png'),
 	// icons_actions_add_white: require('../assets/appImages/white/icons-actions-add.png'),
 	// icons_actions_remove_white: require('../assets/appImages/white/icons-actions-remove.png'),

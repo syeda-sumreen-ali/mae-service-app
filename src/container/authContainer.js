@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Auth} from '../screens'
+import {connect} from 'react-redux'
+import {setToast} from '../store/actions'
 
 export class AuthContainer extends Component {
   state = {
@@ -10,14 +12,20 @@ export class AuthContainer extends Component {
   }
 
   onChangeHandler = (name, val) =>{
-    console.log("zzzzzzzzzz",name,val);  
+
     this.setState({[name]: val})}
 
   onAuthChangeHandler = () =>
     this.setState({isHaveAnAccount: !this.state.isHaveAnAccount})
 
   onAuthSubmit = () => {
+    const{email, password}= this.state
     console.log('auth handler called')
+    if(email && password){
+      this.props.navigation.navigate('customerProfile')
+    }else{
+        this.props.setToast('error', 'required Fields are empty')
+    }
   }
   onAuthWithFacebook = () => {}
   changePasswordResetState = () => {}
@@ -41,4 +49,4 @@ export class AuthContainer extends Component {
   }
 }
 
-export default AuthContainer
+export default connect(null,{setToast})(AuthContainer)

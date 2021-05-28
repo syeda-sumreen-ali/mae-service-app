@@ -1,4 +1,4 @@
-import {types} from '../../actionTypes'
+import {types} from '../actionTypes'
 import {Platform} from 'react-native'
 import {httpRequst} from '../../config'
 import axios from 'axios'
@@ -32,6 +32,19 @@ export const authWithFacebook = goBackFromHome => async dispatch=>{
         if (result.isCancelled) {
         console.log('User cancelled the login process')
         }
+        // Once signed in, get the users AccesToken
+        const data = await AccessToken.getCurrentAccessToken()
+
+        if (!data) {
+        console.log('Something went wrong obtaining access token')
+        }
+
+        // console.log('data after geting access token from fb ', data)
+        // Create a Firebase credential with the AccessToken
+        const facebookCredential = auth.FacebookAuthProvider.credential(
+        data.accessToken,
+        )
+
     } catch (error) {
         
     }

@@ -1,4 +1,4 @@
-import { types } from '../../actionTypes'
+import {types} from '../actionTypes'
 
 export const setToast = (status, message, duration) => dispatch => {
 	try {

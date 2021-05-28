@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   View,
-  Text,
   TextInput,
   SafeAreaView,
   Image,
@@ -9,8 +8,9 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native'
-import { color } from 'react-native-reanimated'
+import {color} from 'react-native-reanimated'
 import {COLORS, FONTS, IMAGES, ICONS, SIZES} from '../../constants'
+import {TextComponent, TextField, ButtonComponent} from '../../components'
 
 const Auth = props => {
   const {
@@ -27,47 +27,69 @@ const Auth = props => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView >
+      <ScrollView>
         <View style={styles.mainDivInScroll}>
-         
-            <Text style={styles.mainHeading}>
-              {isHaveAnAccount ? 'Sign in' : 'Create Account'}
-            </Text>
+          <TextComponent
+            style={styles.mainHeading}
+            text={isHaveAnAccount ? 'Sign in' : 'Create Account'}
+          />
 
-            <Text style={styles.txt}>
-              {isHaveAnAccount
+          <TextComponent
+            style={styles.txt}
+            text={
+              isHaveAnAccount
                 ? 'Or use your account'
-                : 'Or use your email for registration'}
-            </Text>
-            
-              <TextInput
-                style={styles.input}
-                value={email}
-                placeholder='Email'
-                onChangeText={text =>
-                  onChangeHandler('email',text)
-                }
-                keyboardType='email-address'
-              />
-              <TextInput
-                style={styles.input}
-                secureTextEntry={true}
-                value={password}
-                placeholder='Password'
-                onChangeText={text =>
-                  onChangeHandler('password',text)
-                }
-              />
-           
-           
-         
-            <TouchableOpacity
+                : 'Or use your email for registration'
+            }
+          />
+
+          <TextField
+            style={styles.input}
+            value={email}
+            placeholder='Email'
+            onTermChange={text => onChangeHandler('email', text)}
+            keyboardType='email-address'
+            label={'email'}
+            hideLabel={true}
+          />
+          <TextField
+            style={styles.input}
+            hideText={true}
+            value={password}
+            placeholder='Password'
+            onTermChange={text => onChangeHandler('password', text)}
+            label={'password'}
+            hideLabel={true}
+          />
+
+          <ButtonComponent
+            onPress={() => onAuthSubmit()}
+            title={isHaveAnAccount ? 'Sign up' : 'Sign in'}
+          />
+          <ButtonComponent
               onPress={() => onAuthWithFacebook()}
-              style={styles.socialLoginBtn}>
-              <Text style={styles.btnTxt}>FACEBOOK</Text>
-            </TouchableOpacity>
-          </View>
+              btnStyle={styles.socialLoginBtn}
+              btnTextstyle={styles.btnTxt}
+              title={'Facebook'}
+            />
+
+          <View style={styles.linkContainer}>
+
+          <TextComponent
+            style={styles.txt}
+            text={
+              isHaveAnAccount
+                ? "Don't have an account"
+                : 'Already have an account?'
+            }/>
         
+            <ButtonComponent
+              onPress={() => onAuthChangeHandler()}
+              btnStyle={{width:'30%', height:'auto', backgroundColor:'transparent', padding:0 }}
+              title={isHaveAnAccount ? 'Sign up' : 'Sign in'}
+            />
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
@@ -77,11 +99,11 @@ export default Auth
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.yellow,
+    // backgroundColor: COLORS.yellow,
     // backgroundColor: COLORS.white,
     display: 'flex',
   },
- 
+
   mainDivInScroll: {
     display: 'flex',
     flex: 1,
@@ -90,18 +112,16 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.yellow,
     paddingHorizontal: '4%',
     paddingTop: SIZES.height * 0.2,
-   
   },
-
 
   mainHeading: {
     textAlign: 'center',
     ...FONTS.largTitle_b,
-    fontSize:38,
+    fontSize: 38,
     letterSpacing: 0.94,
     color: COLORS.white,
     paddingHorizontal: 20,
-    textTransform:'capitalize'
+    textTransform: 'capitalize',
   },
 
   txt: {
@@ -109,6 +129,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...FONTS.body2_r,
     marginBottom: 20,
+    paddingTop:'5%'
   },
 
   input: {
@@ -144,5 +165,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.75,
     ...FONTS.h2_m,
   },
- 
+  linkContainer:{
+    flexDirection:'row',
+    // alignItems:'center',
+    justifyContent:'center'
+  }
 })
