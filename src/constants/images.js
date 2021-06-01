@@ -10,15 +10,17 @@ const IMAGES = {
 	worker2:require('../assets/workers/2.png'),
 	worker3:require('../assets/workers/6.png'),
 	worker4:require('../assets/workers/7.png'),
+	worker5:require('../assets/workers/4.png'),
+	worker6:require('../assets/workers/3.png'),
 	icons_actions_left: require('../assets/icons-actions-left.png'),
 	icons_actions_photo: require('../assets/icons-actions-photo.png'),
 	icons_actions_add_photo: require('../assets/icons-actions-add-photo.png'),
+	profile_dummy_image: require('../assets/profile_img.jpg'),
 
 
 
 
 	// //testing dummy image
-	// profile_dummy_image: require('../assets/dummyImages/profile_img.jpg'),
 	// dummy_place: require('../assets/dummyImages/places.jpg'),
 	// //ticktok images
 	// icons_action_ticktok: require('../assets/appImages/icons-actions-ticktok-logo.png'),

@@ -1,13 +1,16 @@
 import React from 'react'
-import { View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import{ICONS, COLORS} from '../../constants'
 import {styles} from './style'
 
-const Header = () => {
+const Header = ({toggleDrawer}) => {
     return (
         <View style={styles.header}>
         <View>
+          <TouchableOpacity onPress={()=>toggleDrawer()}>
+
           <ICONS.Entypo name={'menu'} size={30} color={COLORS.dark1} />
+          </TouchableOpacity>
           {/* //heart-outlined */}
         </View>
         <View style={styles.headerRight}>

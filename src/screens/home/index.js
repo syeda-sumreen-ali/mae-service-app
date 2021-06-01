@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import {
   Image,
   ScrollView,
@@ -13,6 +13,7 @@ import SearchSection from './searchSection'
 import CategorySection from './categorySection'
 import Header from './header'
 import {styles} from './style'
+import { Drawer } from '../../components'
 
 const Card = (data, index) => (
   <TouchableOpacity key={index} style={[styles.card, index === 0 && {marginLeft: 20}]}>
@@ -60,6 +61,7 @@ const Card2 = (data, index) => (
   )
 
 const Home = () => {
+  const [toggleDrawer, settoggleDrawer] = useState(false)
   const data = [
     {name: 'David Plumber', image: IMAGES.worker3},
     {name: 'Daisy Gardening Serices', image: IMAGES.worker2},
@@ -79,7 +81,8 @@ const Home = () => {
   ]
   return (
     <View style={styles.container}>
-     <Header/>
+     <Header toggleDrawer={()=>settoggleDrawer(!toggleDrawer)}/>
+   {toggleDrawer&&  <Drawer toggleDrawer={()=>settoggleDrawer(!toggleDrawer)}/>}
     <ScrollView>
         <SearchSection/>
      
