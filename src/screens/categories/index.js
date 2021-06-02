@@ -19,15 +19,14 @@ const Categories = props => {
   )
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
+              <View style={styles.container}>
         <View style={{flexDirection:'row', alignItems:'center'}}>
-            <View>
+            <View   style={{ marginLeft: '5%', marginRight:'2%',  width:'15%'}}>
             <TouchableOpacity
-                style={{ padding: '5%' }}
+              
                 activeOpacity={0.7}
                 onPress={() => navigation.goBack()}
-            >
+                >
                 <Image
                 style={styles.headerRightImage}
                 source={IMAGES.icons_actions_left}
@@ -39,11 +38,12 @@ const Categories = props => {
                 <Text style={styles.h}>Select The Category</Text>
             </View>
         </View>
+                <ScrollView>
         <View style={styles.listContainer}>
           {categories.map((item, index) => categoryCard(item, index))}
         </View>
-      </View>
     </ScrollView>
+      </View>
   )
 }
 
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.yellow1,
     flex: 1,
-    padding: '5%'
+    paddingVertical: '5%'
   },
   h: { ...FONTS.title_m, alignSelf: 'center', marginVertical: '5%', marginLeft:'4%' },
   listContainer: {
