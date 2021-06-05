@@ -22,6 +22,7 @@ export const authWithFacebook = goBackFromHome => async dispatch=>{
     try {
         if(Platform.OS==='android'){
             LoginManager.setLoginBehavior('web_only')
+            // LoginManager.setLoginBehavior('native_only'); 
         }
         LoginManager.logOut()
         const result = await LoginManager.logInWithPermissions([

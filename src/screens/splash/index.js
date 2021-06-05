@@ -8,7 +8,7 @@ const Splash = () => {
   const [progress, setProgress] = React.useState(0)
   const navigation = useNavigation()
   React.useEffect(() => {
-    progress === 1 && navigation.replace('home')
+    progress === 1 && navigation.replace('auth')
   }, [progress])
   
   setTimeout(() => {

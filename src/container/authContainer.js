@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Auth} from '../screens'
 import {connect} from 'react-redux'
-import {setToast} from '../store/actions'
+import {setToast, authWithFacebook} from '../store/actions'
 
 export class AuthContainer extends Component {
   state = {
@@ -27,7 +27,10 @@ export class AuthContainer extends Component {
         this.props.setToast('error', 'required Fields are empty')
     }
   }
-  onAuthWithFacebook = () => {}
+  onAuthWithFacebook = () => {
+    console.log('anythinggg????')
+    this.props.authWithFacebook()
+  }
   changePasswordResetState = () => {}
 
 
@@ -49,4 +52,4 @@ export class AuthContainer extends Component {
   }
 }
 
-export default connect(null,{setToast})(AuthContainer)
+export default connect(null,{setToast, authWithFacebook})(AuthContainer)

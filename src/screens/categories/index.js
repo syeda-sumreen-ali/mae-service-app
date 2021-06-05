@@ -21,7 +21,7 @@ const Categories = props => {
   return (
               <View style={styles.container}>
         <View style={{flexDirection:'row', alignItems:'center'}}>
-            <View   style={{ marginLeft: '5%', marginRight:'2%',  width:'15%'}}>
+            <View   style={{ marginLeft: '5%', marginRight:'3%',  width:'15%'}}>
             <TouchableOpacity
               
                 activeOpacity={0.7}

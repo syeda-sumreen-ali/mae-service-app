@@ -12,7 +12,7 @@ import {
 } from '../container'
 import DevScreen from '../screens/devScreen'
 
-export const initialRouteName = 'home'
+export const initialRouteName = 'splash'
 export const RouteList = [
   { name: 'devScreen', component: DevScreen },
   { name: 'splash', component: SplashContainer },

@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import {COLORS, FONTS, ICONS, IMAGES} from '../../constants'
+import {COLORS, FONTS, ICONS, IMAGES } from '../../constants'
 import SearchSection from './searchSection'
 import CategorySection from './categorySection'
 import Header from './header'
@@ -59,8 +59,10 @@ const Card2 = (data, index) => (
     </TouchableOpacity>
    
   )
-
-const Home = () => {
+  
+  const Home = () => {
+  
+  console.log(IMAGES )
   const [toggleDrawer, settoggleDrawer] = useState(false)
   const data = [
     {name: 'David Plumber', image: IMAGES.worker3},
