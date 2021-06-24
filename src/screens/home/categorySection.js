@@ -1,6 +1,7 @@
 import React ,{useState, useEffect} from 'react'
 import { StyleSheet, TouchableOpacity, ScrollView, Text, View } from 'react-native'
-import {styles} from './style'
+// import {styles} from './style'
+import { COLORS, FONTS, ICONS,IMAGES } from '../../constants'
 import Card from './card'
 
 const CategorySection = ({data}) => {
@@ -41,8 +42,8 @@ const CategorySection = ({data}) => {
 
 
     return (
-        <View>
-             <Text style={styles.h1dark}>Categories</Text>
+        <View style={styles.section1}>
+             <Text style={styles.titleBlue}>Categories</Text>
 
              <View style={styles.tabContainer}>
                 <ScrollView
@@ -72,3 +73,28 @@ const CategorySection = ({data}) => {
 
 export default CategorySection
 
+const styles= StyleSheet.create({
+    section1:{
+        paddingTop:'10%',
+        paddingLeft:'10%'
+    },
+    titleBlue:{
+        color:COLORS.primary,
+        ...FONTS.title_r,
+        letterSpacing:2,
+        marginBottom:30
+    },
+    activeTab:{
+        borderBottomWidth:4,
+        borderBottomColor:COLORS.secondary,
+        marginRight:'2%',
+        paddingBottom:'1%',
+        alignItems:'flex-start'
+    },
+    categoryListItems:{
+        color:COLORS.primary,
+        ...FONTS.h1_m,
+        letterSpacing:1.8,
+        textTransform:'capitalize'
+    }
+})

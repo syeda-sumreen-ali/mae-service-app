@@ -1,6 +1,14 @@
 const IMAGES = {
-
-	logo:require('../assets/logo2.png'),
+		//mae
+	logo:require('../assets/images/Logo.png'),
+	underline:require('../assets/images/Charge.png'),
+	vender_round:require('../assets/images/profile-1.png'),
+	menu:require('../assets/images/menu.png'),
+	left:require('../assets/images/left.png'),
+	bgImage:require('../assets/images/big-image.png'),
+	bgSmallImage:require('../assets/images/menu-small.png'),
+	
+	
 	logo_light:require('../assets/logo_light.png'),
 	logo_dark:require('../assets/logo_dark.png'),
 	bg1:require('../assets/bg1.jpg'),

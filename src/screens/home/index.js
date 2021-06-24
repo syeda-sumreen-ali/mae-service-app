@@ -1,76 +1,11 @@
-import React ,{useState}from 'react'
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native'
-import {COLORS, FONTS, ICONS, IMAGES } from '../../constants'
-import SearchSection from './searchSection'
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Header } from '../../components'
+import TextFieldComponent from '../../components/formFields/textInput'
+import { COLORS, FONTS, ICONS,IMAGES } from '../../constants'
 import CategorySection from './categorySection'
-import Header from './header'
-import {styles} from './style'
-import { Drawer } from '../../components'
 
-const Card = (data, index) => (
-  <TouchableOpacity key={index} style={[styles.card, index === 0 && {marginLeft: 20}]}>
-   <View style={styles.cardImgContainer}>
-    <Image source={data.image} style={styles.cardImg} />
-   </View>
-
-    <Text style={styles.cardTitle}>{data.name}</Text>
-
-    <View style={styles.ratingContainer}>
-        {/* //star-outlined */}
-        <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-        <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-        <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-        <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-        <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-        <Text style={styles.ratingText}>(4.5)</Text>
-    </View>
-
-  </TouchableOpacity>
- 
-)
-
-
-const Card2 = (data, index) => (
-    <TouchableOpacity key={index} style={[styles.card2, index === 0 && {marginLeft: 20}]}>
-     <View style={styles.card2ImgContainer}>
-      <Image source={data.image} style={styles.card2Img} />
-     </View>
-  
-      <Text style={styles.card2Title}>{data.name}</Text>
-  
-      <View style={styles.ratingContainer}>
-          {/* //star-outlined */}
-          <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-          <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-          <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-          <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-          <ICONS.Entypo name={'star'} size={15} color={COLORS.yellow1}/>
-          <Text style={styles.ratingText}>(4.5)</Text>
-      </View>
-  
-    </TouchableOpacity>
-   
-  )
-  
-  const Home = () => {
-  
-  console.log(IMAGES )
-  const [toggleDrawer, settoggleDrawer] = useState(false)
-  const data = [
-    {name: 'David Plumber', image: IMAGES.worker3},
-    {name: 'Daisy Gardening Serices', image: IMAGES.worker2},
-    {name: 'Home Decorators', image: IMAGES.worker1},
-    {name: 'David Plumber', image: IMAGES.worker3},
-    {name: 'Daisy Gardening Serices', image: IMAGES.worker2},
-  ]
+const Home = () => {
   const categoryData=[
     {name: 'David Levis', image: IMAGES.worker3, categories:['air conditioning','electrical',]},
     {name: 'Harry Victor', image: IMAGES.worker3, categories:['satelite','plumber']},
@@ -83,33 +18,64 @@ const Card2 = (data, index) => (
   ]
   return (
     <View style={styles.container}>
-     <Header toggleDrawer={()=>settoggleDrawer(!toggleDrawer)}/>
-   {toggleDrawer&&  <Drawer toggleDrawer={()=>settoggleDrawer(!toggleDrawer)}/>}
-    <ScrollView>
-        <SearchSection/>
-     
-      <View style={styles.promoSection}>
-        <Text style={styles.h1dark}>Top Featured</Text>
-        <ScrollView 
-        nestedScrollEnabled={true}
-        horizontal={true} showsHorizontalScrollIndicator={false}>
-          {data.map((item, index) => Card(item, index))}
-        </ScrollView>
-  
-
-        <CategorySection data={categoryData}/>
-     
-        <Text style={styles.h1dark}>Your Ussuals</Text>
-        <ScrollView 
-        nestedScrollEnabled={true}
-        horizontal={true} showsHorizontalScrollIndicator={false}>
-          {data.map((item, index) => Card2(item, index))}
-        </ScrollView>
+      <Header onPressRight={() => {}} onPressLeft={() => {}} />
+      <View style={styles.section1}>
+        <Text style={styles.title}>Find Your vendor</Text>
+        <View style={styles.flexRow}>
+          <ICONS.Ionicons
+            name={'md-location-sharp'}
+            color={COLORS.secondary}
+            size={25}
+          />
+          <Text style={styles.h3}>City, <Text style={{fontWeight:"bold"}}>Province</Text></Text>
+        </View>
+      <TextFieldComponent style={styles.searchInput} label="" placeholder="search profession"/>
       </View>
-      
-    </ScrollView>
+      {/* <View style={styles.section2}> */}
+          {/* <Text style={styles.titleBlue}>Services</Text> */}
+          <CategorySection data={categoryData}/>
+      {/* </View> */}
     </View>
   )
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+    container:{backgroundColor:COLORS.base},
+    section1:{
+        backgroundColor:COLORS.primary,
+        height:200,
+        borderBottomLeftRadius:40,
+        borderBottomRightRadius:40,
+        alignItems:'center'
+    },
+    title:{
+        color:COLORS.base,
+        ...FONTS.title_b,
+        letterSpacing:2,
+        marginBottom:30
+    },
+    flexRow:{
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    h3:{
+        color:COLORS.base,
+        marginLeft:5,
+        ...FONTS.body1_r,
+        letterSpacing:1.2
+    },
+    searchInput:{
+
+        marginTop:80,
+        width:'85%',
+        marginLeft:"8%",
+        backgroundColor:COLORS.lightGray4,
+        // alignSelf:"center"
+
+        zIndex:200
+    },
+    
+
+})

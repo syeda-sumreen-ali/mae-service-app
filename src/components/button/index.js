@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
-import {COLORS, FONTS} from '../../constants'
+import {COLORS, FONTS, SIZES} from '../../constants'
 
  const ButtonComponent = ({onPress, title, btnStyle, btnTextStyle}) => {
     return (
@@ -15,18 +15,22 @@ import {COLORS, FONTS} from '../../constants'
 export default ButtonComponent
 const styles = StyleSheet.create({
     btn: {
-        backgroundColor: COLORS.black1,
+        backgroundColor: COLORS.primary,
+        borderWidth:1.5,
+
         marginVertical: 10,
-        height: 55,
-        width: '100%',
+        height: 45,
+        borderRadius:50,
+        borderColor:COLORS.secondary,
+        width: SIZES.width*0.5,
         justifyContent: 'center',
         alignSelf: 'center',
         // margin: 20,
       },
       btnTxt: {
-        color: COLORS.light1,
+        color: COLORS.secondary,
         textAlign: 'center',
         letterSpacing: 0.75,
-        ...FONTS.h2_m,
+        ...FONTS.h_m,
       },
 })

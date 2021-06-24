@@ -3,6 +3,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Image,
   SafeAreaView
 } from 'react-native'
 
@@ -17,22 +18,38 @@ import {
   ButtonComponent
 } from '../../components'
 import { navigationRef } from '../../route/rootNavigation'
-import {COLORS} from '../../constants'
+import {COLORS, IMAGES, SIZES} from '../../constants'
 
 const CustomerProfile = (props) => {
     // let email ="", isHaveAnProfile=false
     const {username, email, phone, address, language, isHaveAnProfile}= props
   return (
-      <>
-      <Header
-        title={'Create Profile'}
+   
+      <View style={styles.mainContainer}>
+      
+      <Header 
+        style={{position:'absolute'}}
         onPressLeft={() => navigationRef.current.navigate('home')}
-        hideRightBtn={true}
+        // hideRightBtn={true}
+        onPressLeft={()=>{}}
       />
+     <ScrollView>
+
+      <View  style={{ position:'absolute', top:100, alignSelf:'center', zIndex:9993}}>
+
+
+      <ImagePickerComponent />
+      </View>
     <View style={styles.container}>
-        <View style={styles.imgContainer}>
-        <ImagePickerComponent/>
-        </View>
+   
+
+
+          <Image style={styles.bgImg} source={IMAGES.bgImage}/>
+    <View style={styles.formContainer}>
+
+   
+        {/* <View style={styles.imgContainer}> */}
+        {/* </View> */}
         <TextField
             style={styles.input}
             value={username}
@@ -79,29 +96,70 @@ const CustomerProfile = (props) => {
            
          
        <ButtonComponent
-            onPress={() => onAuthSubmit()}
-            title={isHaveAnProfile ? 'Update':'Create'}
+            onPress={() => {}}
+            title={isHaveAnProfile ? 'Update':'Create Profile'}
           />
+
+</View>
     </View>
-    </>
+ 
+    </ScrollView>
+    </View>
+
   )
 }
 
 export default CustomerProfile
 
 const styles = StyleSheet.create({
+  
+  mainContainer:{
+    backgroundColor:COLORS.primary,
+  },
+  
+  bgImg:{width:SIZES.width},
     container:{
-        backgroundColor:COLORS.white,
-        flex:1,
-        paddingHorizontal:'4%',
-        paddingTop:'8%'
-    },
-    input:{
-        backgroundColor:COLORS.lightGray4,
-        // borderBottomColor:COLORS.dark1,
-        borderWidth:0,
-        marginBottom:'4%'
-    },imgContainer:{
-        marginBottom:'6%'
-    }
+        borderTopRightRadius:45,
+        borderTopLeftRadius:45,
+        overflow:'hidden',
+        marginTop:180,
+        // position:'absolute',
+        // zIndex:10000
+      },
+
+      formContainer:{
+        position:"absolute",
+        // zIndex:44,
+        height:SIZES.height,
+        paddingTop:'25%',
+        paddingHorizontal:'15%',
+        paddingBottom:100,
+        // flex:1
+      },
+  //   input:{
+  //       alignSelf:'center',
+  //       marginBottom:'5%'
+  //   },
+    // imgContainer:{
+        // marginBottom:'6%',
+        // marginTop:-50,
+        // zIndex:33,
+     
+        // position:'absolute'
+    // },
+  //   bgImageContainer:{
+  //     borderTopRightRadius:45,
+  //     borderTopLeftRadius:45,
+  //     // marginTop:-500,
+  //     overflow:'hidden'
+  //   },
+  //   bgImage:{
+  //     // resizeMode:"cover",
+
+  //     // position:'absolute',
+  //     // marginTop:-30,
+  //     // top:-100,
+  //     // width:SIZES.width,
+  //     // height:SIZES.height
+  //   }
 })

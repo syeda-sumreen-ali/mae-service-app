@@ -18,13 +18,20 @@ export class AuthContainer extends Component {
   onAuthChangeHandler = () =>
     this.setState({isHaveAnAccount: !this.state.isHaveAnAccount})
 
-  onAuthSubmit = () => {
+  onAuthSubmit = (type ) => {
     const{email, password}= this.state
     console.log('auth handler called')
     if(email && password){
       this.props.navigation.navigate('customerProfile')
     }else{
         this.props.setToast('error', 'required Fields are empty')
+    }
+
+    if(type==='login'){
+      console.log('login')
+    }
+    else{
+      console.log('register')
     }
   }
   onAuthWithFacebook = () => {

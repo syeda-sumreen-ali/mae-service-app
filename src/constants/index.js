@@ -2,10 +2,12 @@ import ICONS from "./icons";
 import { IMAGES } from "./images";
 import timezone from "./data/timezone.json";
 import langauges from "./data/languages.json";
+
 import {monthList}from "./data/month";
 import { deviceOrientation } from "./deviceOrientation";
 
 import theme, { COLORS, GREEN_THEME,BLUE_THEME,WOOD_THEME, SIZES, FONTS, DARK_THEME } from "./theme";
+import { dummyText } from "./data/dummyText";
 
 export {
 	IMAGES,
@@ -22,4 +24,5 @@ export {
 	timezone,
 	langauges,
 	monthList,
+	dummyText
 };

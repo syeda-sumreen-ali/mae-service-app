@@ -12,10 +12,13 @@ import {
 } from '../container'
 import DevScreen from '../screens/devScreen'
 
-export const initialRouteName = 'splash'
+import {Intro} from '../screens'
+
+export const initialRouteName = 'home'
 export const RouteList = [
   { name: 'devScreen', component: DevScreen },
   { name: 'splash', component: SplashContainer },
+  // { name: 'intro', component: Intro },
   { name: 'auth', component: AuthContainer },
   { name: 'home', component: HomeContainer },
   { name: 'customerProfile', component: CustomerProfileContainer },

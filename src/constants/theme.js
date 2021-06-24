@@ -2,6 +2,7 @@ import {Dimensions} from 'react-native'
 const {width, height} = Dimensions.get('window')
 
 export const COLORS = {
+  
   // colors
   yellow: '#FBB915',
   yellow1: '#FBC74F',
@@ -59,7 +60,16 @@ export const COLORS = {
   success: '#4bb543',
   info: '#6f6f6f',
   disabled: '#c2c2c2',
-  facebook:'#0a92f0'
+  facebook:'#0a92f0',
+
+
+
+  //mae 
+  primary:"#2c74fc",
+  // primary:'#486FFF',
+  secondary:'#43EDDC',
+  base:'#FBFCFF'
+
 }
 
 export const WOOD_THEME = {
@@ -148,7 +158,7 @@ export const SIZES = {
 
   // font sizes
   // largeTitle: 50,
-  largTitle: 32,
+  largTitle: 44,
   title: 24, //experience
   subTitle: 20, //experience
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Image, Text, View } from 'react-native'
-import { COLORS, FONTS, IMAGES } from '../../constants'
+import { COLORS, FONTS, IMAGES, SIZES } from '../../constants'
 
 const Header = ({
 	title,
@@ -13,17 +13,18 @@ const Header = ({
 	onPressLeft,
 	onPressRight,
 	navigation,
-	hideRightBtn=false
+	hideRightBtn=false,
+	style
 }) => {
 	return (
-		<View style={styles.header}>
+		<View style={[styles.header,style]}>
 			<TouchableOpacity
 				activeOpacity={0.7}
 				onPress={() => onPressLeft ? onPressLeft() : navigation.goBack()}
 			>
 				<Image
 					style={styles.headerRightImage}
-					source={IMAGES.icons_actions_left}
+					source={IMAGES.left}
 				/>
 			</TouchableOpacity>
 			<View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -42,7 +43,11 @@ const Header = ({
 				activeOpacity={0.7}
 				onPress={() => onPressRight ? onPressRight() : navigation.goBack()}
 			>
-				<Text style={[styles.headerRightBtn, rightBtnTextStyle]}>{rightBtnText || 'Done'}</Text>
+				<Image
+					style={styles.headerRightImage}
+					source={IMAGES.menu}
+				/>
+				{/* <Text style={[styles.headerRightBtn, rightBtnTextStyle]}>{rightBtnText || 'Done'}</Text> */}
 			</TouchableOpacity>
 			:<View/>
 			}
@@ -56,9 +61,8 @@ export default Header
 const styles = StyleSheet.create({
 
 	header: {
-		backgroundColor: COLORS.white,
-		borderBottomWidth:2,
-		borderBottomColor:COLORS.lightGray1,
+		backgroundColor: COLORS.primary,
+		width:SIZES.width,
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "space-between",

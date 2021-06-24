@@ -152,7 +152,7 @@ import {FONTS, COLORS, ICONS, DARK_THEME, SIZES} from '../../../constants'
           maxLength={maxLength}
           editable={editable}
           placeholder={placeholder}
-          placeholderTextColor={COLORS.gray}
+          placeholderTextColor={COLORS.primary}
           onChangeText={(formatted, extracted) => {
             setField(formatted)
             handleTextChange(formatted)
@@ -193,7 +193,7 @@ import {FONTS, COLORS, ICONS, DARK_THEME, SIZES} from '../../../constants'
                       color:
                         editable || activeColorReadOnly
                           ? COLORS.black1
-                          : COLORS.gray,
+                          : COLORS.primary,
                     }
                   : styles.placeholder
               }>
@@ -206,7 +206,7 @@ import {FONTS, COLORS, ICONS, DARK_THEME, SIZES} from '../../../constants'
               color={
                 value && (editable || activeColorReadOnly)
                   ? COLORS.black1
-                  : COLORS.gray
+                  : COLORS.primary
               }
               size={SIZES.calender}
             />
@@ -221,7 +221,7 @@ import {FONTS, COLORS, ICONS, DARK_THEME, SIZES} from '../../../constants'
             maxLength={maxLength}
             editable={editable}
             placeholder={placeholder}
-            placeholderTextColor={COLORS.lightGray1}
+            placeholderTextColor={COLORS.primary}
             // onChange={(e) => console.log(e)}
             onChangeText={val =>
               getOnlyNumbers
@@ -295,13 +295,16 @@ const styles = StyleSheet.create({
   },
   _textInput: {flexDirection: 'row', overflow: 'hidden'},
   textInput: {
-    backgroundColor: COLORS.lightGray3,
-    borderColor: 'transparent',
-    borderBottomColor: COLORS.gray2,
+    backgroundColor: COLORS.secondary,
+    // borderColor: 'transparent',
+    borderColor: COLORS.base,
+    borderRadius:50,
+    marginBottom:20,
+    color:COLORS.primary,
+    
     borderWidth: 1,
     height: 50,
     paddingHorizontal: 15,
-    color: COLORS.black1,
     width: '100%',
     ...FONTS.h2_r,
     lineHeight: 18,

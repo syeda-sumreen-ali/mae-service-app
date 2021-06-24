@@ -9,5 +9,6 @@ export { default as DateTimePicker} from './formFields/DateTimePicker'
 export { default as ImagePickerComponent} from './imagePicker'
 export { default as Drawer} from './drawer'
 export { default as Card} from './card'
+export { default as Screen} from './screen'
 
 
